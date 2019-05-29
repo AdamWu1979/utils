@@ -1,5 +1,32 @@
 
 function [h_o, ax_o, cb_o] = imagesc_fmri(imM, imF, th, cmap_c, mode)
+%%function [h_o, ax_o, cb_o] = imagesc_fmri(imM, imF, th, cmap_c, mode)
+% This function overlays a activity map, imF, onto a structural image, imM.
+% It takes a (2,)-sized threshold, th, which acts as a mask-out interval, i.e.,
+% activity level that is inside the interval [th(1), th(2)] will be transparent
+% in the displayed figure.
+% Notice that, this function cannot handle 3D image inputs. User needs to stitch
+% 3D images together into 2D ones before passing in. Matlab's built-in `cat` may
+% be useful for this purpose.
+% The function contains a `test`, run `imagesc_fmri()` to demo it.
+%INPUTS
+% - imM (nMx, nMy), structural image, possibly high res.
+% - imF (nFx, nFy), activity map, possibly different res. `imagescn` will resize
+%     it to (nMx, nMy).
+% - th (2,), threshold interval, $imF \in [th(1),th(2)]$ will be transparent.
+%OPTIONAL
+% - cmap_c (3,) cell, colormap, read `gen_cmap_c()` for more details.
+% - mode (1,) colorbars location. Matlab is awkward at controlling location. A
+%     better way here is use the default and export the figure to .svg format,
+%     handle it with professional figure editors.
+%OUTPUTS
+% - h_o,  array of images handles
+% - ax_o, array of axes handles of the stacked final figure
+% - cb_o, array of colorbar handles of the stacked final figure
+%
+%% know issues
+% 1. colorbars may trespass on other components or reach outside of the figure.
+%    It's easier to handle this by saving as svg and edit w/ inkscape, etc.
 
 if nargin == 0, test(); return; end
 
@@ -64,7 +91,4 @@ subplot(122)
 [h, ax, cb] = imagesc_fmri(imM, imF, th, [], 1); title('display mode 1');
 
 end
-
-%% know issues
-% 1. colorbars may trespass on other components or reach outside of the figure
 
