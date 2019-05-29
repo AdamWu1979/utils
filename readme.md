@@ -1,5 +1,7 @@
 # General Purpose Utils Repo
 
+https://gitlab.com/fMRI/utils/readme.md
+
 The repo is dedicated to share and keep track of utilities that are non-specific
 to projects, e.g. mri-fft-like functions, etc.\
 So wheels are not reinvented overtime, and function calls are consistent.
