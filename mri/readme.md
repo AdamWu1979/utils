@@ -1,5 +1,7 @@
 # Utilities for MRI
 
+`sosCombine.m, sMapCombine.m`\
+functions combining coil images into one final image.\
 `g2k.m g2s.m k2g.m`,\
 functions converting k-space to/from gradient to/from slewrate.\
 `m(i)fft.m`,\

@@ -3,7 +3,7 @@
 Please put all utils that are only intended for internal usages under this sub-directory.\
 When shipping utils with your opensource project,
 please check if your `fmri/utils.git` repo in on the branch `opensource`,
-before packing the functions here into your opensource repo.\
+before packing the functions here into your opensource repo.
 
 `git checkout opensource` will automatically move all files under this directory into .git,
 so they will not be included when packing for shipping.
