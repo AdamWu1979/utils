@@ -4,9 +4,6 @@ function genericSetup(doSavePath) %#ok<FNDEF> % generic, named intentionally
 if ~exist('doSavePath','var'), doSavePath = false; end
 theDir = fileparts(mfilename('fullpath'));
 prevDir = cd(theDir);
-if doSavePath, curDir = theDir;
-else,          curDir = '.';
-end
 
 %% generate path
 % don't use pwd in genpath, as names in dName_rm_c can appear in it.
@@ -28,7 +25,7 @@ end
 %% add path
 warning('off', 'MATLAB:mpath:packageDirectoriesNotAllowedOnPath');
 % 1st char, '.', and last char, filesep, removed before addpath
-for iName = 1:numel(dName_c), addpath([curDir, dName_c{iName}(2:end-1)]); end
+for iName = 1:numel(dName_c), addpath([theDir, dName_c{iName}(2:end-1)]); end
 warning('on', 'MATLAB:mpath:packageDirectoriesNotAllowedOnPath');
 
 %% save?
