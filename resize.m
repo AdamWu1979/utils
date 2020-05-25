@@ -11,7 +11,7 @@ function [y] = resize(x, sy, method, extrapval)
 % - y (sy), result nd-array
 
 if isequal(size(x), sy), y = x; return; end
-if ~exist('method', 'var'), method = 'linear'; end
+if nonEmptyVarChk('method'), method = 'linear'; end
 
 sx = size(x);
 if iscolumn(x), sx = sx(1); elseif isrow(x), sx = sx(2); else; end
@@ -23,8 +23,8 @@ coord_c = cell(numel(sx_c),1);
 grid_c = cell(numel(sx_c),1);
 [grid_c{:}] = ndgrid(coord_c{:});
 
-if exist('extrapval', 'var'), y = interpn(x, grid_c{:}, method, extrapval);
-else                        , y = interpn(x, grid_c{:}, method);
+if nonEmptyVarChk('extrapval'), y = interpn(x, grid_c{:}, method, extrapval);
+else                          , y = interpn(x, grid_c{:}, method);
 end
 
 end

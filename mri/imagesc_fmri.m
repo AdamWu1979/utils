@@ -30,8 +30,10 @@ function [h_o, ax_o, cb_o] = imagesc_fmri(imM, imF, th, cmap_c, mode)
 
 if nargin == 0, test(); return; end
 
-if ~nonEmptyVarChk('cmap_c'), cmap_c = gen_cmap_c(); end
-if ~exist('mode',  'var'), mode = 0; end
+th_ratio = 1-abs(th);
+
+if ~nonEmptyVarChk('cmap_c'), cmap_c = gen_cmap_c(th_ratio); end
+if ~nonEmptyVarChk('mode'), mode = 0; end
 
 assert(th(2) > th(1));
 [mn, mp] = deal(imF <= th(1), imF >= th(2));

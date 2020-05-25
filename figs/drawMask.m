@@ -15,6 +15,8 @@ function [m, h] = drawMask(P, varargin)
 % - m (nx, ny), mask
 % - h obj, object corresponding to 'method' prescribed
 
+import attr.*
+
 if nargin == 0; test(); return; end
 
 arg.method = 'circ';

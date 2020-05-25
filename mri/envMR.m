@@ -14,6 +14,8 @@ function varargout = envMR(mod, varargin)
 % This heuristic of staying within the system limits is often due to the algs
 % used are penalized methods rather than constraint methods.
 
+import attr.*
+
 if nargin == 0, test(); return; end
 
 persistent mrEnv_p % _p: persistent, good to put these vars at the beginning.
@@ -48,6 +50,8 @@ end
 end
 
 function test()
+import attr.*
+
 prefix = mfilename('fullpath');
 disp('------------------------');
 disp([prefix, '.test()']);

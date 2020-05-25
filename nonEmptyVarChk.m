@@ -2,6 +2,7 @@ function isNonEmpty = nonEmptyVarChk(vn, allowEmpty)
 % Dirty trick to test whether a variable exists and is not empty.
 % One may forget sanity checking if an input is empty. An empty input will pass
 % the exists check, but may crash a program.
+% With this, one can call default value via, e.g., 'foo(arg1, [], arg3)'
 %INPUTS
 % - vn str, name of variable to be checked
 % - allowEmpty [t/F], allow this var to be empty
