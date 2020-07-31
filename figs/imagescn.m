@@ -55,7 +55,7 @@ if nargout > 1, ax_o = ax; end
 end
 
 function axBundle_set(ax)
-hlink = linkprop(ax, {'Position','XTick','YTick','XLim','YLim','ZLim','Title'});
+hlink = linkprop(ax, {'Position','XTick','YTick'});
 setappdata(ax(1), 'axBundle', hlink);
 end
 
@@ -85,6 +85,7 @@ z2(z2<0.8) = nan; % nan will be transparent
 
 figure
 [h, ax] = imagescn(z1,z2);
+title('imagescn demo');
 
 end
 

@@ -1,4 +1,4 @@
-function plot3d(x)
+function plot3d(varargin)
 % plot3 wrapper
 import attr.*
 
